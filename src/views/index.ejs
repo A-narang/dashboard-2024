@@ -1,20 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 <body>
-    Hi
-    <% info.forEach(i => { %>
-        <ul>
-            <li>Name: <%= i.name %></li>
-            <li>Name: <%= i.name %></li>
-            <li>Logo: <%= i.logo_url %></li>
-            <li>Desc: <%= i.desc %></li>
-            <li>Active: <%= i.active %></li>
-        </ul>
-    <% }); %>
+  <form action="/submit" method="post">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="logo_url">Logo URL:</label><br>
+    <input type="url" id="logo_url" name="logo_url" required><br><br>
+
+    <label for="desc">Description:</label><br>
+    <textarea id="desc" name="desc" rows="4" cols="50" required></textarea><br><br>
+
+    <label for="active">Active:</label>
+    <input type="checkbox" id="active" name="active"><br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+  <br>
+  
+  <% info.forEach(i => { %>
+    <ul>
+      <li>Name: <%= i.name %></li>
+      <li>Logo: <%= i.logo_url %></li>
+      <li>Desc: <%= i.desc %></li>
+      <li>Active: <%= i.active %></li>
+    </ul>
+  <% }); %>
 </body>
 </html>
