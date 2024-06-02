@@ -9,7 +9,6 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // mongodb imports
-import mongoose from 'mongoose';
 import pkg from 'mongodb';
 const { MongoClient, ObjectId } = pkg;
 
@@ -76,6 +75,24 @@ app.post('/submit', async (req, res) => {
     res.status(500).json({ error: 'Failed to insert data', details: error.message });
   }
 });
+
+// Delete route
+app.delete('/delete/:id', async (req, res) => {
+    const { id } = req.params;
+  
+    try {
+      const client = await connectToMongo();
+      const db = client.db('info');
+      const info = await db.collection('org_info');
+      await info.deleteOne({ _id: new ObjectId(id) });
+      res.status(200).json({ message: 'Organization deleted successfully' });
+      
+    } catch (error) {
+      debug('Failed to delete data:', error.stack);
+      res.status(500).json({ error: 'Failed to delete data', details: error.message });
+    }
+  });
+  
 
 // listen on a port
 app.listen(PORT, () => {

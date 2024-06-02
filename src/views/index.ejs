@@ -25,11 +25,30 @@
   
   <% info.forEach(i => { %>
     <ul>
+      <img src="<%= i.logo_url %>">
       <li>Name: <%= i.name %></li>
-      <li>Logo: <%= i.logo_url %></li>
       <li>Desc: <%= i.desc %></li>
       <li>Active: <%= i.active %></li>
+      <button class="delete-btn" data-id="<%= i._id %>">Delete</button>
     </ul>
   <% }); %>
+
+  <script>
+    document.querySelectorAll('.delete-btn').forEach(button => {
+      button.addEventListener('click', async (event) => {
+        const id = event.target.getAttribute('data-id');
+        const response = await fetch(`/delete/${id}`, {
+          method: 'DELETE'
+        });
+
+        if (response.ok) {
+          location.reload(); // Reload the page to reflect the changes
+        } else {
+          alert('Failed to delete the organization');
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
