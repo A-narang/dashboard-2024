@@ -18,5 +18,5 @@ Technologies:
 - MongoDB is used to store and handle data
 - EJS is the templating engine
 
-## Short reflection
+## Reflection
 I learned a lot from this project. I had very little experience working with databases before this project so I enjoyed learning how MongoDB worked. I also learned about endpoints and how to handle form submissions. When I was working on the delete button I learned the importance of having the object id to delete the correct organization. If I had more time I would've liked to try to create an update button and learn how to create the route for that as well.
