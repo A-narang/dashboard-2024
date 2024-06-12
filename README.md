@@ -1,7 +1,7 @@
 # c4c-dashboard-2024
 C4C dashboard challange
 
-## iInstructions for how to start your application
+## Instructions for how to start your application
 1. npm install
 2. npm start
 3. go to http://localhost:3000/
