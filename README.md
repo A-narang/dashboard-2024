@@ -1,12 +1,12 @@
 # c4c-dashboard-2024
-c4c dashboard challange
+C4C dashboard challange
 
-## instructions for how to start your application
+## iInstructions for how to start your application
 1. npm install
 2. npm start
 3. go to http://localhost:3000/
 
-## a high-level overview of the application
+## A high-level overview of the application
 
 Features:
 - Add Organizations: Users can submit information about organizations, including name, logo URL, description, and active status. When the user fills out and submits the form it sends a POST request to the /submit route. The information the user entered is used to create a new organization object which is then inserted in the MongoDB database. 
@@ -18,5 +18,5 @@ Technologies:
 - MongoDB is used to store and handle data
 - EJS is the templating engine
 
-## design decisions
-## short reflection
+## Design decisions
+## Short reflection
