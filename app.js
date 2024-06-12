@@ -7,20 +7,18 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 dotenv.config();
-
-// mongodb imports
 import pkg from 'mongodb';
 const { MongoClient, ObjectId } = pkg;
 
+// constants
 const debug = debugLib('app');
 const PORT = process.env.PORT || 3000;
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-//const url = process.env.MONGODB_URL;
-const url = 'mongodb+srv://anu:yOcyRiLplsqaV9X6@org-names.ge4w1vx.mongodb.net/?retryWrites=true&w=majority&appName=org-names'
+const url = process.env.MONGODB_URL;
 
-// Middleware
+// middleware
 app.use(morgan('tiny'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -28,7 +26,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
-// Create a MongoClient instance
+// mongo client
 let client;
 
 async function connectToMongo() {
@@ -53,7 +51,7 @@ app.get('/', async (req, res) => {
   }
 });
 
-// Handle form submission
+// form submission route
 app.post('/submit', async (req, res) => {
   console.log('req.body:', req.body);
   const { name, logo_url, desc, active } = req.body;
@@ -77,7 +75,7 @@ app.post('/submit', async (req, res) => {
   }
 });
 
-// Delete route
+// delete route
 app.delete('/delete/:id', async (req, res) => {
     const { id } = req.params;
   

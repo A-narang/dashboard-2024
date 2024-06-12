@@ -4,11 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+  <h1>C4C Dashboard Challange</h1>
+  <br>
   <form action="/submit" method="post">
-    <label for="name">Name:</label><br>
+    <label for="name">Organization Name:</label><br>
     <input type="text" id="name" name="name" required><br><br>
 
     <label for="logo_url">Logo URL:</label><br>
@@ -17,19 +19,20 @@
     <label for="desc">Description:</label><br>
     <textarea id="desc" name="desc" rows="4" cols="50" required></textarea><br><br>
 
-    <label for="active">Active:</label>
+    <label for="active">Currently Active?:</label>
     <input type="checkbox" id="active" name="active"><br><br>
 
-    <input type="submit" value="Submit">
+    <input class = "submit" type="submit" value="Submit">
   </form>
   <br>
-  
+  <hr/>
   <% info.forEach(i => { %>
     <ul>
       <img src="<%= i.logo_url %>">
-      <li>Name: <%= i.name %></li>
-      <li>Desc: <%= i.desc %></li>
-      <li>Active: <%= i.active %></li>
+      <h3><%= i.name %></h3>
+      <li><%= i.desc %></li>
+      <br>
+      <li class="<%= i.active %>"><%= i.active ? 'Active' : 'Inactive' %></li>
       <button class="delete-btn" data-id="<%= i._id %>">Delete</button>
     </ul>
   <% }); %>
