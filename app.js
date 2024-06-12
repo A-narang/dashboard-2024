@@ -17,7 +17,8 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const url = process.env.MONGODB_URL;
+//const url = process.env.MONGODB_URL;
+const url = 'mongodb+srv://anu:yOcyRiLplsqaV9X6@org-names.ge4w1vx.mongodb.net/?retryWrites=true&w=majority&appName=org-names'
 
 // Middleware
 app.use(morgan('tiny'));
